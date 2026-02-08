@@ -84,7 +84,7 @@ jobs:
       - name: checkout catalogue deploy repo
         uses: actions/checkout@v6
         with:
-          repository: daws-86s/catalogue-deploy
+          repository: muralipydi-source/catalogue-deploy
 
       - name: deploy to ${{ inputs.environment }} cluster
         id: uat_deploy
@@ -92,7 +92,7 @@ jobs:
 
       - name: Update Deploy status
         if: always()
-        uses: daws-86s/workflows/.github/actions/update-commit-status@main
+        uses: muralipydi-source/workflows/.github/actions/update-commit-status@main
         with:
           sha: ${{ inputs.version }}
           state: ${{ steps.uat_deploy.outcome }}     # success / failure / cancelled
